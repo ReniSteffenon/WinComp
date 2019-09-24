@@ -12,6 +12,7 @@ package wincomp;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     protected String textoAberto;
+    private static final int R = 256;
     
     /**
      * Creates new form TelaPrincipal
@@ -32,6 +33,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         v_saida_texto_tela_principal = new javax.swing.JTextArea();
+        b_gerar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         b_arquivo = new javax.swing.JMenu();
         b_abrir_arquivo_arquivo = new javax.swing.JMenuItem();
@@ -42,6 +44,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         v_saida_texto_tela_principal.setColumns(20);
         v_saida_texto_tela_principal.setRows(5);
         jScrollPane1.setViewportView(v_saida_texto_tela_principal);
+
+        b_gerar.setText("Gerar");
+        b_gerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerarActionPerformed(evt);
+            }
+        });
 
         b_arquivo.setText("Arquivo");
 
@@ -68,13 +77,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(327, 327, 327)
+                .addComponent(b_gerar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(b_gerar))
         );
 
         pack();
@@ -85,6 +99,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.textoAberto = arquivo.abrirArquivoTexto();
         this.v_saida_texto_tela_principal.setText(textoAberto);
     }//GEN-LAST:event_b_abrir_arquivo_arquivoActionPerformed
+
+    private void b_gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerarActionPerformed
+        String s = "Reni Steffenon";
+        char[] input = s.toCharArray();
+
+        // tabulate frequency counts
+        int[] freq = new int[R];
+        for (int i = 0; i < input.length; i++)
+            freq[input[i]]++;
+    }//GEN-LAST:event_b_gerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +148,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem b_abrir_arquivo_arquivo;
     private javax.swing.JMenu b_arquivo;
+    private javax.swing.JButton b_gerar;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;

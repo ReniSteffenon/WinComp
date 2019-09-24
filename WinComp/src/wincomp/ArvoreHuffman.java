@@ -7,15 +7,8 @@ package wincomp;
 
 /**
  *
- * @author Steffenon
+ * @author renisteffenon
  */
-
-public class Coding {
-
-	
+public class ArvoreHuffman {
     
-    public void calcular(){
-        
-    }
-
 }

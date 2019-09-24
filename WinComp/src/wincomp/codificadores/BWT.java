@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wincomp;
+package wincomp.codificadores;
 
 /**
  *
- * @author Steffenon
+ * @author renisteffenon
  */
-
-public class Coding {
-
-	
+public class BWT {
     
-    public void calcular(){
-        
-    }
-
 }
