@@ -34,6 +34,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         v_saida_texto_tela_principal = new javax.swing.JTextArea();
         b_gerar = new javax.swing.JButton();
+        b_codificar_tela_principal = new javax.swing.JButton();
+        b_decodificar_tela_inicial = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         b_arquivo = new javax.swing.JMenu();
         b_abrir_arquivo_arquivo = new javax.swing.JMenuItem();
@@ -51,6 +53,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 b_gerarActionPerformed(evt);
             }
         });
+
+        b_codificar_tela_principal.setText("Codificar");
+
+        b_decodificar_tela_inicial.setText("Decodificar");
 
         b_arquivo.setText("Arquivo");
 
@@ -75,12 +81,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(327, 327, 327)
-                .addComponent(b_gerar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(b_codificar_tela_principal)
+                        .addGap(147, 147, 147)
+                        .addComponent(b_gerar)
+                        .addGap(133, 133, 133)
+                        .addComponent(b_decodificar_tela_inicial)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +100,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(b_gerar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_gerar)
+                    .addComponent(b_codificar_tela_principal)
+                    .addComponent(b_decodificar_tela_inicial)))
         );
 
         pack();
@@ -148,6 +163,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem b_abrir_arquivo_arquivo;
     private javax.swing.JMenu b_arquivo;
+    private javax.swing.JButton b_codificar_tela_principal;
+    private javax.swing.JButton b_decodificar_tela_inicial;
     private javax.swing.JButton b_gerar;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

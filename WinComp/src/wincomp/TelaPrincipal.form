@@ -52,13 +52,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="782" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
-              <Component id="b_gerar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="b_codificar_tela_principal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="b_gerar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="b_decodificar_tela_inicial" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" pref="782" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,7 +76,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="351" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="b_gerar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="b_gerar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="b_codificar_tela_principal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="b_decodificar_tela_inicial" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,6 +108,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_gerarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="b_codificar_tela_principal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Codificar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="b_decodificar_tela_inicial">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Decodificar"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
