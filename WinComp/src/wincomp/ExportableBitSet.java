@@ -29,6 +29,8 @@ public class ExportableBitSet extends BitSet {
         }
     }
     
+    
+    
     @Override
     public byte[] toByteArray()  {
         if (size() == 0)
@@ -58,7 +60,7 @@ public class ExportableBitSet extends BitSet {
                 return false;
         return (bytes[bit/8] & BIT_MASK[bit%8]) != 0;
     }
-    protected static void setBit(int bit, byte[] bytes) {
+    public static void setBit(int bit, byte[] bytes) {
         int size = bytes == null ? 0 : bytes.length*8;
         if (bit >= size) {
                 System.out.println(bit + " : " + size);
