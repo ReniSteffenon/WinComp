@@ -50,9 +50,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         v_saida_tela_principal = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
         b_dec_huffman = new javax.swing.JButton();
+        b_aplicar_cr8 = new javax.swing.JButton();
+        b_verificar_cr8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         b_arquivo = new javax.swing.JMenu();
         b_abrir_arquivo_arquivo = new javax.swing.JMenuItem();
@@ -92,14 +92,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Saida");
 
-        jCheckBox1.setText("Huffman Adaptativo");
-
-        jCheckBox2.setText("LZ78");
-
         b_dec_huffman.setText("Decodificar Huffman Adaptativo");
         b_dec_huffman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_dec_huffmanActionPerformed(evt);
+            }
+        });
+
+        b_aplicar_cr8.setText("Aplicar CRC8");
+        b_aplicar_cr8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_aplicar_cr8ActionPerformed(evt);
+            }
+        });
+
+        b_verificar_cr8.setText("Verificar CRC8");
+        b_verificar_cr8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_verificar_cr8ActionPerformed(evt);
             }
         });
 
@@ -152,9 +162,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(b_aplicar_cr8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_verificar_cr8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -166,9 +176,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)))
+                        .addComponent(b_aplicar_cr8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(b_verificar_cr8)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -246,6 +256,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         huff.executar("-d", in.toString(), "8");
     }//GEN-LAST:event_b_dec_huffmanActionPerformed
 
+    private void b_aplicar_cr8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_aplicar_cr8ActionPerformed
+        CRC8 crc = new CRC8();
+        String arquivo = this.gereC.abrirArquivoTexto();
+        String primeiros8bytes = arquivo.substring(0, 8);
+        byte[] b = primeiros8bytes.getBytes();
+        crc.update(b, 0, 8);
+        long reCrc = crc.getValue();
+        arquivo+=crc;
+        this.gereC.writeFileCRC(arquivo, this.gereC.selecionarLocalGravacao());
+    }//GEN-LAST:event_b_aplicar_cr8ActionPerformed
+
+    private void b_verificar_cr8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_verificar_cr8ActionPerformed
+        CRC8 crc = new CRC8();
+        String arquivo = this.gereC.abrirArquivoTexto();
+    }//GEN-LAST:event_b_verificar_cr8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,13 +310,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem b_abrir_arquivo_arquivo;
     private javax.swing.JMenuItem b_abrir_arquivo_decodificador_tela_principal;
+    private javax.swing.JButton b_aplicar_cr8;
     private javax.swing.JMenu b_arquivo;
     private javax.swing.JButton b_cod_huf;
     private javax.swing.JButton b_codificar_tela_principal;
     private javax.swing.JButton b_dec_huffman;
     private javax.swing.JButton b_decodificar_tela_inicial;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton b_verificar_cr8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;

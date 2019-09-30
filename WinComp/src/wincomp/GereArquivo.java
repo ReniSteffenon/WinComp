@@ -101,6 +101,17 @@ public class GereArquivo {
             e.printStackTrace();
         }
     }
+    
+    public void writeFileCRC(String input, File fou) {
+        try {
+            FileWriter fw = new FileWriter(fou);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(input);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public File getFile() {
         return file;
