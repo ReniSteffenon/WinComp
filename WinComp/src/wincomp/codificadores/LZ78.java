@@ -7,10 +7,7 @@ package wincomp.codificadores;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author renisteffenon
- */
+
 public class LZ78 {
     private static final int maxDicSize = 65536;
     

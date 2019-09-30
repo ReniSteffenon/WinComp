@@ -8,10 +8,7 @@ package wincomp;
 import java.util.Arrays;
 import java.util.BitSet;
 
-/**
- *
- * @author renisteffenon
- */
+
 
 public class ExportableBitSet extends BitSet {
     private static final long serialVersionUID = 1L;

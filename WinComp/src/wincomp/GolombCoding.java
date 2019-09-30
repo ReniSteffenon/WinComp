@@ -5,10 +5,7 @@
  */
 package wincomp;
 
-/**
- *
- * @author Steffenon
- */
+
 public class GolombCoding {
     
 }

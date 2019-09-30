@@ -7,7 +7,6 @@ package wincomp;
 
 import java.io.File;
 import javax.swing.JFileChooser;
-import wincomp.codificadores.Huffman;
 import wincomp.codificadores.LZ78;
 
 /**
@@ -45,7 +44,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         v_entrada_texto_tela_principal = new javax.swing.JTextArea();
-        b_gerar = new javax.swing.JButton();
+        b_cod_huf = new javax.swing.JButton();
         b_codificar_tela_principal = new javax.swing.JButton();
         b_decodificar_tela_inicial = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -53,6 +52,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         v_saida_tela_principal = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
+        b_dec_huffman = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         b_arquivo = new javax.swing.JMenu();
         b_abrir_arquivo_arquivo = new javax.swing.JMenuItem();
@@ -67,21 +67,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         v_entrada_texto_tela_principal.setRows(5);
         jScrollPane1.setViewportView(v_entrada_texto_tela_principal);
 
-        b_gerar.setText("Gerar");
-        b_gerar.addActionListener(new java.awt.event.ActionListener() {
+        b_cod_huf.setText("Codificar Huffman Adaptativo");
+        b_cod_huf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_gerarActionPerformed(evt);
+                b_cod_hufActionPerformed(evt);
             }
         });
 
-        b_codificar_tela_principal.setText("Codificar");
+        b_codificar_tela_principal.setText("Codificar LZ78");
         b_codificar_tela_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_codificar_tela_principalActionPerformed(evt);
             }
         });
 
-        b_decodificar_tela_inicial.setText("Decodificar");
+        b_decodificar_tela_inicial.setText("Decodificar LZ78");
         b_decodificar_tela_inicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_decodificar_tela_inicialActionPerformed(evt);
@@ -95,6 +95,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jCheckBox1.setText("Huffman Adaptativo");
 
         jCheckBox2.setText("LZ78");
+
+        b_dec_huffman.setText("Decodificar Huffman Adaptativo");
+        b_dec_huffman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_dec_huffmanActionPerformed(evt);
+            }
+        });
 
         b_arquivo.setText("Arquivo");
 
@@ -131,11 +138,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(b_codificar_tela_principal)
+                        .addGap(18, 18, 18)
+                        .addComponent(b_cod_huf)
                         .addGap(147, 147, 147)
-                        .addComponent(b_gerar)
-                        .addGap(133, 133, 133)
+                        .addComponent(b_dec_huffman)
+                        .addGap(42, 42, 42)
                         .addComponent(b_decodificar_tela_inicial)
-                        .addContainerGap(327, Short.MAX_VALUE))
+                        .addContainerGap(63, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(v_saida_tela_principal, javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,9 +175,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(v_saida_tela_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_gerar)
+                    .addComponent(b_cod_huf)
                     .addComponent(b_codificar_tela_principal)
-                    .addComponent(b_decodificar_tela_inicial)))
+                    .addComponent(b_decodificar_tela_inicial)
+                    .addComponent(b_dec_huffman)))
         );
 
         pack();
@@ -180,8 +190,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.v_entrada_texto_tela_principal.setText(textoAberto);
     }//GEN-LAST:event_b_abrir_arquivo_arquivoActionPerformed
 
-    private void b_gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerarActionPerformed
-        String s = "Reni Steffenon";
+    private void b_cod_hufActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cod_hufActionPerformed
+        /*String s = "Reni Steffenon";
         char[] input = s.toCharArray();
 
         // tabulate frequency counts
@@ -189,7 +199,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         for (int i = 0; i < input.length; i++) {
             freq[input[i]]++;
         }
-    }//GEN-LAST:event_b_gerarActionPerformed
+        */
+        
+        File in = gereC.getFile();
+        AdaptiveHuffmanCoding huff = new AdaptiveHuffmanCoding();
+        huff.executar("-e", in.toString(), "8");
+        
+       
+    }//GEN-LAST:event_b_cod_hufActionPerformed
 
     private void b_codificar_tela_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_codificar_tela_principalActionPerformed
         //gere.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -222,6 +239,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.textoCodificado = gereD.abrirArquivoTexto();
         this.v_saida_tela_principal.setText(textoCodificado);
     }//GEN-LAST:event_b_abrir_arquivo_decodificador_tela_principalActionPerformed
+
+    private void b_dec_huffmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_dec_huffmanActionPerformed
+        File in = gereD.getFile();
+        AdaptiveHuffmanCoding huff = new AdaptiveHuffmanCoding();
+        huff.executar("-d", in.toString(), "8");
+    }//GEN-LAST:event_b_dec_huffmanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,9 +285,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem b_abrir_arquivo_arquivo;
     private javax.swing.JMenuItem b_abrir_arquivo_decodificador_tela_principal;
     private javax.swing.JMenu b_arquivo;
+    private javax.swing.JButton b_cod_huf;
     private javax.swing.JButton b_codificar_tela_principal;
+    private javax.swing.JButton b_dec_huffman;
     private javax.swing.JButton b_decodificar_tela_inicial;
-    private javax.swing.JButton b_gerar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
